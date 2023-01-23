@@ -1,0 +1,65 @@
+{
+    "name": "treinamento-web",
+    "version": "1.0.0",
+    "description": "Treinamento para web",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon src/main.ts",
+        "start": "node index",
+        "lint": "tslint -s node_modules/tslint_stylish -t stylish src/**/*.ts",
+        "test:coverage": "nyc --reporter=html --reporter=text --reporter=text-summary npm test",
+        "test": "nyc mocha src/**/*.spec.ts",
+        "doc-code": "typedoc --mode 'file' --module 'commonjs' --target 'ES6' --ignoreCompilerErrors --exclude '**/*.spec.ts' --out 'doc/code' 'src'"
+    },
+    "repository": {
+        "type": "git",
+        "url": "gitlab.c3sl.ufpr.br/rfhf19/treinamento-web-backend.git"
+    },
+    "keywords": [
+        "web"
+    ],
+    "nyc": {
+        "include": [
+            "src/**/*.ts"
+        ],
+        "extension": [
+            ".ts"
+        ],
+        "require": [
+            "ts-node/register"
+        ],
+        "reporter": [
+            "text-summary",
+            "html"
+        ],
+        "sourceMap": true,
+        "instrument": true
+    },
+    "author": "Richard Fernando Heise Ferreira",
+    "license": "ISC",
+    "dependencies": {
+        "@types/express": "^4.11.1",
+        "@types/pg": "^7.4.1",
+        "cors": "^2.8.5",
+        "express": "^4.16.2",
+        "pg": "^7.4.1",
+        "strip-bom": "^4.0.0",
+        "ts-node": "^4.1.0",
+        "typescript": "^2.7.1"
+    },
+    "devDependencies": {
+        "@istanbuljs/nyc-config-typescript": "^1.0.1",
+        "@types/mocha": "^5.2.7",
+        "@types/supertest": "^2.0.8",
+        "@types/chai": "^4.0.1",
+        "chai": "^4.2.0",
+        "mocha": "^6.2.1",
+        "nyc": "^14.1.1",
+        "raml2html": "^7.4.0",
+        "supertest": "^4.0.2",
+        "tslint": "^5.20.0",
+        "tslint-stylish": "^2.1.0-beta",
+        "typedoc": "^0.15.0",
+        "source-map-support": "^0.5.6"
+    }
+}
